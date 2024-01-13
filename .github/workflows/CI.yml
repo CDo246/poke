@@ -16,17 +16,13 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: '20.x'
+          node-version: "20.x"
 
       - name: Install dependencies
         run: yarn install
 
       - name: Check formatting
         run: yarn lint
-      
+
       - name: Check types
         run: yarn tsc
-
-
-
-  
