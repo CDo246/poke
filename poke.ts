@@ -30,8 +30,7 @@ function makeShuffledDeck() {
 
 function dealPlayers(deck: Card[], playerNum: Card) {
   let players: Player[] = [];
-  for (let i = 0; i < playerNum; 
-    i++) {
+  for (let i = 0; i < playerNum; i++) {
     let dealtHand: Card[] = [];
     for (let j = 0; j < 3; j++) {
       dealtHand.push(deck.pop()!);
@@ -56,23 +55,21 @@ function calculateResult(players: Player[]) {
   }));
   let result = playerResults.map((result) => result.sum);
   let maxResults = Math.max(...result);
-  return playerResults.filter((result) => result.sum === maxResults).map((result) => result.player);
+  return playerResults
+    .filter((result) => result.sum === maxResults)
+    .map((result) => result.player);
 }
 
 function printCard(card: Card) {
   if (card.value == 1) {
     console.log(`Ace of ${card.suite}`);
-  }
-  else if (card.value == 11) {
+  } else if (card.value == 11) {
     console.log(`Jack of ${card.suite}`);
-  }
-  else if (card.value == 12) {
+  } else if (card.value == 12) {
     console.log(`Queen of ${card.suite}`);
-  }
-  else if (card.value == 13) {
+  } else if (card.value == 13) {
     console.log(`King of ${card.suite}`);
-  }
-  else {
+  } else {
     console.log(`${card.value} of ${card.suite}`);
   }
 }
@@ -82,8 +79,6 @@ function printPlayerHand(player: Player) {
     printCard(card);
   }
 }
-
-
 
 function playGame() {
   console.log(`Starting a game with ${playerNum} players!`);
@@ -102,8 +97,7 @@ function playGame() {
       printPlayerHand(player);
       console.log();
     }
-  }
-  else {
+  } else {
     console.log(`The winner is:`);
     printPlayerHand(result[0]);
   }
