@@ -28,7 +28,7 @@ function makeShuffledDeck() {
   return shuffledDeck;
 }
 
-function dealPlayers(deck: Card[], playerNum: Card) {
+function dealPlayers(deck: Card[], playerNum: number) {
   let players: Player[] = [];
   for (let i = 0; i < playerNum; i++) {
     let dealtHand: Card[] = [];
