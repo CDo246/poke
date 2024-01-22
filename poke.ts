@@ -48,16 +48,15 @@ function sumCards(hand: Card[]) {
   return sum;
 }
 
-function calculateResult(players: Player[]) {  
+function calculateResult(players: Player[]) {
   let maxSum = sumCards(players[0].hand);
   let maxPlayers: Player[] = [];
   for (let player of players) {
-    let sum = sumCards(player.hand)
+    let sum = sumCards(player.hand);
     if (sum > maxSum) {
       maxSum = sum;
       maxPlayers = [player];
-    }
-    else if (sum == maxSum){
+    } else if (sum == maxSum) {
       maxPlayers.push(player);
     }
   }
