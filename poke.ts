@@ -48,16 +48,20 @@ function sumCards(hand: Card[]) {
   return sum;
 }
 
-function calculateResult(players: Player[]) {
-  const playerResults = players.map((player) => ({
-    player: player,
-    sum: sumCards(player.hand),
-  }));
-  let result = playerResults.map((result) => result.sum);
-  let maxResults = Math.max(...result);
-  return playerResults
-    .filter((result) => result.sum === maxResults)
-    .map((result) => result.player);
+function calculateResult(players: Player[]) {  
+  let maxSum = sumCards(players[0].hand);
+  let maxPlayers: Player[] = [];
+  for (let player of players) {
+    let sum = sumCards(player.hand)
+    if (sum > maxSum) {
+      maxSum = sum;
+      maxPlayers = [player];
+    }
+    else if (sum == maxSum){
+      maxPlayers.push(player);
+    }
+  }
+  return maxPlayers;
 }
 
 function printCard(card: Card) {
